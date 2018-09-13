@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class CharStack {
 	private int maxSize;
 	private int top ;
@@ -28,5 +30,9 @@ class CharStack {
 	
 	public boolean isFull() {
 		return(top ==  maxSize-1);
+	}
+	
+	public void printStack() {
+		System.out.println(Arrays.toString(stackArray));
 	}
 }
