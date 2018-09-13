@@ -1,27 +1,11 @@
 import java.util.Scanner;
-//import jav.util.Arrays;
 
-class CharStack {
-	private int maxSize;
-	private int top ;
-	private char[] stackArray;
-	
-	public CharStack(int size) {
-		stackArray = new char[size];
-		maxSize = size;
-		top = -1;
-	}
-	
-	public void push(char val) {
-		stackArray[++top] = val;
-	}
-	
-	public char pop() {
-		char toReturn = stackArray[top];
-		stackArray[top--] = 0; // not in real case, just to demonstrate
-		return toReturn;
-	}
-}
+/*The base stack class is in separated out as a separate class as 
+ * it is being used in multiple programs.
+ *
+ * It is present in the same package at 
+ * https://github.com/christyjohn/practice/blob/master/datastructures/arrays/Stack/CharStack.java
+ */
 public class ReverseString {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
