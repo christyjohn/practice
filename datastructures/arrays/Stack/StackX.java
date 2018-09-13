@@ -24,17 +24,11 @@ class StackX {
 	}
 	
 	public boolean isEmpty() {
-		if(stackArray[top] == -1)
-			return true;
-		else
-			return false;
+		return(top == -1);
 	}
 	
 	public boolean isFull() {
-		if(top ==  maxSize-1)
-			return true;
-		else
-			return false;
+		return(top ==  maxSize-1);
 	}
 	
 	public void printStack() {
