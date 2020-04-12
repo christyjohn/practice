@@ -7,7 +7,7 @@ int main()
     // Ask the user to enter a string
     char buffer[255];
     cout << "Enter a string: ";
-    cin >> getline(buffer, std::size(buffer));
+    cin >> getline(buffer, buffer.size());
 
     int spacesFound{ 0 };
     int bufferLength{ static_cast<int>(std::strlen(buffer)) };
