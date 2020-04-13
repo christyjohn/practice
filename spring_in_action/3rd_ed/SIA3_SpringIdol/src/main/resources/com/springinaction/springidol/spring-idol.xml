@@ -19,7 +19,7 @@
 		<constructor-arg value="15" />
 		<constructor-arg ref="sonnet29" />
 	</bean>
-	
+		
 	<bean id="saxophone" class="com.springinaction.springidol.Saxophone"/>
 	<bean id="piano" class="com.springinaction.springidol.Piano"/>
 	<bean id="guitar" class="com.springinaction.springidol.Guitar"/>
@@ -29,6 +29,10 @@
 	<bean id="kenny" class ="com.springinaction.springidol.Instrumentalist"
 		p:song = "Jingle Bells" 
 		p:instrument-ref = "saxophone" />
+		
+	<bean id="carl" class ="com.springinaction.springidol.Instrumentalist">
+		<property name="song" value="#{kenny.song}" /> 
+	</bean>
 		
 	<bean id="hank"	class="com.springinaction.springidol.OneManBand">
 		<property name="instruments">
