@@ -11,14 +11,17 @@ public class SpringIdolMain {
 		Performer performer;
 		
 		/* 
-		 * performer = (Juggler) ctx.getBean("duke");
+		 performer = (Juggler) ctx.getBean("duke");
 		 performer.perform();
 		
 		performer = (PoeticJuggler) ctx.getBean("poeticDuke");
 		performer.perform();
-		*/
+		
 		
 		performer = (Performer)ctx.getBean("kenny");
+		performer.perform();
+		*/
+		performer = (Performer)ctx.getBean("hank");
 		performer.perform();
 	}
 
