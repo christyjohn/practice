@@ -9,10 +9,16 @@ public class SpringIdolMain {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"com/springinaction/springidol/spring-idol.xml");
 		Performer performer;
-		// performer = (Juggler) ctx.getBean("duke");
-		// performer.perform();
+		
+		/* 
+		 * performer = (Juggler) ctx.getBean("duke");
+		 performer.perform();
 		
 		performer = (PoeticJuggler) ctx.getBean("poeticDuke");
+		performer.perform();
+		*/
+		
+		performer = (Performer)ctx.getBean("kenny");
 		performer.perform();
 	}
 
