@@ -7,5 +7,12 @@
 		<constructor-arg value="15" />
 	</bean>
 	
+	<bean id="sonnet29" class="com.springinaction.springidol.Sonnet29" />
+	
+	<bean id="poeticDuke" 
+		class="com.springinaction.springidol.PoeticJuggler">
+		<constructor-arg value="15" />
+		<constructor-arg ref="sonnet29" />
+	</bean>
 
 </beans>

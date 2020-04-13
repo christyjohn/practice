@@ -14,4 +14,6 @@ public class IdolTest {
 		Juggler duke = (Juggler) ctx.getBean("duke");
 		assertEquals("JUGGLING 15 BEANBAGS", duke.performForTest());
 	}
+	
+	
 }
