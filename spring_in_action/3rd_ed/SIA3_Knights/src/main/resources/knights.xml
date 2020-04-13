@@ -4,8 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="knight" class="com.springinaction.knights.BraveKnight">
-		<constructor-arg ref="quest" />
+		<constructor-arg ref="quest2" />
 	</bean>
 	
-	<bean id="quest" class="com.springinaction.knights.SlayDragonQuest" />
+	<bean id="quest1" class="com.springinaction.knights.SlayDragonQuest" />
+	<bean id="quest2" class="com.springinaction.knights.RescueDamselQuest" />
 </beans>
