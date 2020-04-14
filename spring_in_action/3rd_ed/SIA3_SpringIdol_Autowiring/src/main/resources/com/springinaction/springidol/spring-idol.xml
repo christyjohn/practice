@@ -13,6 +13,8 @@
 	</bean>
 	
 	<bean id="piano" class="com.springinaction.springidol.Piano" />
+	<bean id="saxophone" class="com.springinaction.springidol.Saxophone" 
+		primary="true" />
 	
 	<!--  <bean id="kenny" class="com.springinaction.springidol.Instrumentalist" 
 		autowire="byType">
