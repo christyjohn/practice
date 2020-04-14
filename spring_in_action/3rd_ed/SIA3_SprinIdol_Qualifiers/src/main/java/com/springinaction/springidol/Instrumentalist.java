@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Instrumentalist implements Performer {
 	@Autowired
-	//@Qualifier("guitar")
+	@StringedInstrument
+	@Strummed
 	private Instrument instrument;
 	
 	private String song;
