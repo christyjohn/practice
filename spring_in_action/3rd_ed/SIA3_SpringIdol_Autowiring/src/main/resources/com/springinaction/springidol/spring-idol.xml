@@ -20,4 +20,9 @@
 		autowire="byType">
 	<bean id="instrument" class="com.springinaction.springidol.Piano" /> -->
 	
+	<bean id="duke" class="com.springinaction.springidol.PoeticJuggler"
+		autowire="constructor" />
+		
+	<bean id="sonnet29" class="com.springinaction.springidol.Sonnet29" />
+	
 </beans>

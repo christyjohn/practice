@@ -8,7 +8,14 @@ public class SpringIdolMain {
 	public static void main(String[] args) throws PerformanceException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"com/springinaction/springidol/spring-idol.xml");
+		Performer performer;
+		
+		/*
 		Performer performer = (Performer)ctx.getBean("kenny");
+		performer.perform();
+		*/
+		
+		performer = (Performer)ctx.getBean("duke");
 		performer.perform();
 	}
 
