@@ -20,23 +20,6 @@
 	<aop:config>
 		<aop:aspect ref="audience">
 
-<!-- 
-			<aop:before
-				pointcut="execution(* com.springinaction.springidol.Performer.perform(..))"
-				method="takeSeats" />
-
-			<aop:before
-				pointcut="execution(* com.springinaction.springidol.Performer.perfor(..))"
-				method="turnOffCellPhones" />
-
-			<aop:after-returning
-				pointcut="execution(* com.springinaction.springidol.Performer.perform(..))"
-				method="applaud" /> 
-
-			<aop:after-throwing
-				pointcut="execution(* com.springinaction.springidol.Performer.perform(..))"
-				method="demandRefund" />
- -->
  		  <!-- Named pointcut -->
  		  <aop:pointcut id="performance" expression=
  				"execution(* com.springinaction.springidol.Performer.perform(..))"
@@ -58,20 +41,6 @@
 				method="demandRefund" />
  		
 		</aop:aspect>
-	</aop:config>
-	
-	<aop:config>
-	  <aop:aspect ref="aroundaudience">
-	  	<!-- Named pointcut -->
- 		  <aop:pointcut id="performance2" expression=
- 				"execution(* com.springinaction.springidol.Performer.perform(..))"
- 		  />
- 		  
- 		  <aop:around
- 		  		pointcut-ref="performance2"
- 		  		method="watchPerformance" />
- 		  
-	  </aop:aspect>
 	</aop:config>
 
 </beans>
