@@ -15,8 +15,8 @@
 	</bean>
 
 	<bean id="pointA" class="com.christy.springdemo.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
 	</bean>
 
 	<bean id="pointB" class="com.christy.springdemo.Point">
@@ -32,5 +32,8 @@
 <!-- 	<bean class="com.christy.springdemo.DisplayNameBeanPostProcessor" /> -->
 
 	<bean class="com.christy.springdemo.MyBeanFactoryPostProcessor" />
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties" />
+	</bean> 
 
 </beans>  	 
