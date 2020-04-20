@@ -29,6 +29,8 @@
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean class="com.christy.springdemo.DisplayNameBeanPostProcessor" />
+<!-- 	<bean class="com.christy.springdemo.DisplayNameBeanPostProcessor" /> -->
+
+	<bean class="com.christy.springdemo.MyBeanFactoryPostProcessor" />
 
 </beans>  	 

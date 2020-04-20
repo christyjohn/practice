@@ -3,7 +3,7 @@ package com.christy.springdemo;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean, DisposableBean{
+public class Triangle { // implements InitializingBean, DisposableBean
 	Point pointA;
 	Point pointB;
 	Point pointC;
@@ -38,22 +38,19 @@ public class Triangle implements InitializingBean, DisposableBean{
 		System.out.println("Point C = {" + getPointC().getX() + ", " + getPointC().getY() + "} ");
 	}
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("InitializingBean's init mehod called for Triangle");
-	}
-
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("DisposableBean's destroy mehod called for Triangle");
-
-	}
-
-	public void myInit() {
-		System.out.println("MyInit method called for Triangle");
-	}
-
-	public void myDestroy() {
-		System.out.println("MyDestroy method called for Triangle");
-	}
+	/*
+	 * @Override public void afterPropertiesSet() throws Exception {
+	 * System.out.println("InitializingBean's init mehod called for Triangle"); }
+	 * 
+	 * @Override public void destroy() throws Exception {
+	 * System.out.println("DisposableBean's destroy mehod called for Triangle");
+	 * 
+	 * }
+	 * 
+	 * public void myInit() {
+	 * System.out.println("MyInit method called for Triangle"); }
+	 * 
+	 * public void myDestroy() {
+	 * System.out.println("MyDestroy method called for Triangle"); }
+	 */
 }
