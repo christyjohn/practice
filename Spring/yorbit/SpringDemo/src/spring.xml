@@ -4,5 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	  	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="triangle" class="com.christy.springdemo.Triangle" />
+	<bean id="triangle" class="com.christy.springdemo.Triangle">
+		<property name="type" value="Equilateral" />
+	</bean>
 </beans>  	 
