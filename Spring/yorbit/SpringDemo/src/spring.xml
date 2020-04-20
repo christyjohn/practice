@@ -5,6 +5,12 @@
 	  	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="triangle" class="com.christy.springdemo.Triangle">
-		<property name="type" value="Equilateral" />
+		<!-- <property name="type" value="Equilateral" /> -->
+<!-- 		<constructor-arg type="int" value="20" /> -->
+<!-- 		<constructor-arg type="java.lang.String" value="Equilateral" /> -->
+			<constructor-arg index="0" value="Equilateral" />
+			<constructor-arg index="1" value="20" />
+		<!-- <constructor-arg value="Equilateral" />
+		<constructor-arg value="20" /> -->
 	</bean>
 </beans>  	 
