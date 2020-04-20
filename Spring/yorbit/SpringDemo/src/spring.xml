@@ -19,17 +19,10 @@
 		<property name="y" value="0" />
 	</bean>
 
-	<bean id="parenttriangle" class="com.christy.springdemo.Triangle">
+	<bean id="triangle" class="com.christy.springdemo.Triangle">
 		<property name="pointA" ref="pointA" />
-	</bean>
-
-	<bean id="triangle1" class="com.christy.springdemo.Triangle" parent="parenttriangle">
 		<property name="pointB" ref="pointB" />
 		<property name="pointC" ref="pointC" />
-	</bean>
-
-	<bean id="triangle2" class="com.christy.springdemo.Triangle" parent="parenttriangle">
-		<property name="pointB" ref="pointB" />
 	</bean>
 
 

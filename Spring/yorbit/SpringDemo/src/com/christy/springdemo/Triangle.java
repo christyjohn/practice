@@ -1,15 +1,11 @@
 package com.christy.springdemo;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle { //implements ApplicationContextAware, BeanNameAware {
+public class Triangle implements InitializingBean { 
 	Point pointA;
 	Point pointB;
 	Point pointC;
-	private ApplicationContext context = null;
 
 	public Point getPointA() {
 		return pointA;
@@ -41,11 +37,8 @@ public class Triangle { //implements ApplicationContextAware, BeanNameAware {
 		System.out.println("Point C = {" + getPointC().getX() + ", " + getPointC().getY() + "} ");
 	}
 
-	/*
-	 * @Override public void setApplicationContext(ApplicationContext context)
-	 * throws BeansException { this.context = context; }
-	 * 
-	 * @Override public void setBeanName(String beanName) {
-	 * System.out.println("Bean name is: " + beanName); }
-	 */
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("InitializingBean's init mehod called for Triangle");
+	}
 }
