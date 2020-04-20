@@ -1,8 +1,9 @@
 package com.christy.springdemo;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean { 
+public class Triangle implements InitializingBean, DisposableBean { 
 	Point pointA;
 	Point pointB;
 	Point pointC;
@@ -40,5 +41,11 @@ public class Triangle implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("InitializingBean's init mehod called for Triangle");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("DisposableBean's destroy mehod called for Triangle");
+		
 	}
 }
