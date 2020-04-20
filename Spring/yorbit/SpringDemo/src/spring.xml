@@ -4,6 +4,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	  	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+	<bean id="triangle" class="com.christy.springdemo.Triangle"
+		init-method="myInit"
+		destroy-method="myDestroy">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+
 	<bean id="pointA" class="com.christy.springdemo.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
@@ -17,12 +26,6 @@
 	<bean id="pointC" class="com.christy.springdemo.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
-	</bean>
-
-	<bean id="triangle" class="com.christy.springdemo.Triangle">
-		<property name="pointA" ref="pointA" />
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
 	</bean>
 
 
