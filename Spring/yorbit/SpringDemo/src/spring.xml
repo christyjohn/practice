@@ -9,7 +9,7 @@
 		<property name="y" value="0" />
 	</bean>
 
-	<bean id="triangle" class="com.christy.springdemo.Triangle">
+	<bean id="triangle" class="com.christy.springdemo.Triangle" name="triangle-name">
 		<property name="pointA" ref="point1" />
 		<property name="pointB">
 			<bean id="point2" class="com.christy.springdemo.Point">
