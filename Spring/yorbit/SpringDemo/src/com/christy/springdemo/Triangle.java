@@ -3,7 +3,7 @@ package com.christy.springdemo;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle { // implements InitializingBean, DisposableBean
+public class Triangle implements Shape { // implements InitializingBean, DisposableBean
 	Point pointA;
 	Point pointB;
 	Point pointC;
@@ -33,6 +33,7 @@ public class Triangle { // implements InitializingBean, DisposableBean
 	}
 
 	public void draw() {
+		System.out.println("Drawing a triangle");
 		System.out.println("Point A = {" + getPointA().getX() + ", " + getPointA().getY() + "} ");
 		System.out.println("Point B = {" + getPointB().getX() + ", " + getPointB().getY() + "} ");
 		System.out.println("Point C = {" + getPointC().getX() + ", " + getPointC().getY() + "} ");

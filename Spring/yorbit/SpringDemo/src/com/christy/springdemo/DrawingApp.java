@@ -8,8 +8,12 @@ public class DrawingApp {
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		Triangle triangle = (Triangle) context.getBean("triangle");
-		triangle.draw();
+		/*
+		 * Triangle triangle = (Triangle) context.getBean("triangle"); triangle.draw();
+		 * Circle circle = (Circle) context.getBean("circle"); circle.draw();
+		 */
+		Shape shape = (Shape) context.getBean("circle"); 
+		shape.draw();
 	}
 
 }
