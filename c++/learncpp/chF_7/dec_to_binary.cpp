@@ -17,7 +17,7 @@ void printBinary(int x)
 int main()
 {
 	int x;
-	std::cout << "Enter a positive integer: " << '\n';
+	std::cout << "Enter a positive integer: ";
 	std::cin >> x;
  
 	printBinary(x);
