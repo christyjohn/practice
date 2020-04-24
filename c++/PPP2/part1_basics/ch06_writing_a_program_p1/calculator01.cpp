@@ -178,32 +178,36 @@ double term()
 //------------------------------------------------------------------------------
 
 int main()
-try
 {
-    while (cin) {
-        cout << "> ";
-        Token t = ts.get();
-        while (t.kind == ';') 
-            t=ts.get();    // eat ';'
-        if (t.kind == 'q') {
-            keep_window_open();
-            return 0;
+    cout << "Welcome to our simple calculator.\n"
+         <<  "Please enter expressions using floating-point numbers.\n";
+    cout << " +, -, * and / are available" << endl;
+    try
+    {
+        while (cin) {
+            cout << "> ";
+            Token t = ts.get();
+            while (t.kind == ';') 
+                t=ts.get();    // eat ';'
+            if (t.kind == 'q') {
+                keep_window_open();
+                return 0;
+            }
+            ts.putback(t);
+            cout << "= " << expression() << endl;
         }
-        ts.putback(t);
-        cout << "= " << expression() << endl;
+        keep_window_open();
+        return 0;
     }
-    keep_window_open();
-    return 0;
+    catch (exception& e) {
+        cerr << "error: " << e.what() << '\n'; 
+        keep_window_open();
+        return 1;
+    }
+    catch (...) {
+        cerr << "Oops: unknown exception!\n"; 
+        keep_window_open();
+        return 2;
+    }
 }
-catch (exception& e) {
-    cerr << "error: " << e.what() << '\n'; 
-	keep_window_open();
-    return 1;
-}
-catch (...) {
-    cerr << "Oops: unknown exception!\n"; 
-	keep_window_open();
-    return 2;
-}
-
 //------------------------------------------------------------------------------
