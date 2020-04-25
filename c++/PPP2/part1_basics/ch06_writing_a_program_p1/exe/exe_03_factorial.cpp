@@ -1,12 +1,12 @@
 #include "../../lib_files/std_lib_facilities.h"
 
-	//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 class Token
 {
     public:
-        char kind;              // what kind of token
-        double value;           // for numbers: a value 
+        char kind;          // what kinnd of token
+        double value;       // for numbers: a value
         Token(char ch)
             :kind(ch), value(0) { }
         Token(char ch, double val)
@@ -17,20 +17,20 @@ class Token
 
 class Token_stream
 {
-        public:
-            Token_stream();     // make a Token_stream that reads from cin
-            Token get();        // get a Token (get() is defined elsewhere)
-            void putback(Token t);  // put a Token back
-        private:
-            bool full {false};  // is there a Token in the buffer? 
-            Token buffer = { 0 };       // here is where we keep a Token put back using putback()
+    public:
+        Token_stream();     // make a Token_stream that reads from cin
+        Token get();        // get a Token (get() is defined elsewhere)
+        void putback(Token t);      // put a Token back
+    private:
+        bool full {false};      // is there a Token in the buffer? 
+        Token buffer= { 0 };    // here is where we keep a Token put back using putback()
 };
 
 //------------------------------------------------------------------------------
 
 // The constructor just sets full to indicate that the buffer is empty:
 Token_stream::Token_stream()
-:full(false), buffer(0)    // no Token in buffer
+:full(false), buffer(0)     // no Token in buffer
 {
 }
 
@@ -40,38 +40,38 @@ void Token_stream::putback(Token t)
 {
     if (full)
         error("putback() into full buffer");
-    buffer = t;         // copy t to buffer
-    full = true;        // buffer is now full
+    buffer = t;             // copy t to buffer
+    full = true;            // buffer is now full
 }
 
 //------------------------------------------------------------------------------
 
 Token Token_stream::get()
 {
-    if (full)           // do we already have a Token ready?
+    if (full)               // do we already have a Token ready?
     {
-        full = false;   // remove Token from buffer
+        full = false;       // remove Token from buffer
         return buffer;
     }
-    char ch;
-    cin >> ch;          // note that >> skips whitespace (space, newline, tab, etc.)
+    char ch;                // note that >> skips whitespace (space, newline, tab, etc.)
+    cin >> ch;
     switch (ch)
     {
-        case ';':       // for print
-        case 'q':       // for quit
-        case '(': case ')': case '+': case '-': case '*':case '/':
+        case ';':           // for print
+        case 'q':           // for quit
+        case '(': case ')': case '+': case '-': case '*': case '/': case '!':
             return Token(ch);   // let each character represent itself
         case '.':
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
         {
-            cin.putback(ch);      // put digit back into the input stream
+            cin.putback(ch);    // put digit back into the input stream
             double val;
             cin >> val;         // read a floating-point number
-            return Token{'8', val};    // let ‘8’ represent “a number”
+            return Token{ '8', val }; // let ‘8’ represent “a number”
         }
         default:
-            error("Bad token");
+            error("Bad Token");
     }
 }
 
@@ -89,12 +89,20 @@ double term();        // read and evaluate a Term
 
 //------------------------------------------------------------------------------
 
+bool is_factorial();        // check token is !
+
+//------------------------------------------------------------------------------
+
+int factorial(int val);        // calculate factorial
+
+//------------------------------------------------------------------------------
+
 double primary()        // deal with numbers and parentheses
 {
     Token t = ts.get();
     switch (t.kind)
     {
-        case '(':   // handle '(' expression ')'
+        case '(':       // handle '(' expression ')'
         {
             double d = expression();
             t = ts.get();
@@ -102,13 +110,23 @@ double primary()        // deal with numbers and parentheses
                 error("')' expected");
             return d;
         }
-        /* case ')':
+        case '{':       // handle '{' expression '}'
         {
             double d = expression();
+            t = ts.get();
+            if (t.kind != '}')
+                error("'}' expeted");
             return d;
-        } */
-        case '8':               // we use '8' to represent a number
-            return t.value;     // return the number's value
+        }
+
+        case '8': case '!':              // we use '8' to represent a number
+            // include a test whether the number is integer and > 0 
+            if(is_factorial()){
+                double d  = factorial(t.value);
+                t = ts.get();
+                return d;
+            }
+            else return t.value;
         case '-':
             return -primary();
         case '+':
@@ -124,22 +142,22 @@ double primary()        // deal with numbers and parentheses
 double expression()
 {
     double left = term();       // read and evaluate a Term
-    Token t = ts.get();      // get the next token
+    Token t = ts.get();         // get the next token
     while (true)
     {
         switch (t.kind)
         {
             case '+':
-                left +=term();  // evaluate Term and add
+                left += term();     // evaluate Term and add
                 t = ts.get();
                 break;
             case '-':
-                left -=term();  // evaluate Term and subtract
+                left -=term();      // evaluate Term and subtract
                 t = ts.get();
                 break;
             default:
-                ts.putback(t); // put t back into the token stream
-                return left;    // finally: no more + or –; return the answer
+                ts.putback(t);      // put t back into the token stream
+                return left;        // finally: no more + or –; return the answer
         }
     }
 }
@@ -163,7 +181,7 @@ double term()
             {
                 double d = primary();
                 if (d == 0)
-                    error ("divide by zero");
+                    error("divideby zero");
                 left /= d;
                 t = ts.get();
                 break;
@@ -177,17 +195,48 @@ double term()
 
 //------------------------------------------------------------------------------
 
+int factorial(int val)
+{
+    if (val <= 1 )
+        return 1;
+    else 
+    {
+        return val * factorial(val - 1);
+    }
+}
+
+//------------------------------------------------------------------------------
+/*
+   Non-member method: is_factorial.
+   Use: bool fact = is_factorial(void);
+   This funnction returns true if a number
+   is followed by factorial opertor. 
+   Used as an indicator to call factorial function.
+*/
+bool is_factorial(){
+    Token t = ts.get();
+    if (t.kind == '!'){
+        ts.putback(t);
+        return true;
+    }
+    ts.putback(t);
+    return false;
+}
+
+//------------------------------------------------------------------------------
+
 int main()
 {
     cout << "Welcome to our simple calculator.\n"
          <<  "Please enter expressions using floating-point numbers.\n";
-    cout << " +, -, * and / are available" << endl;
+    cout << " +, -, *, / and ! are available" << endl;
     try
     {
-        while (cin) {
+        while (cin) 
+        {
             cout << "> ";
             Token t = ts.get();
-            while (t.kind == ';') 
+            while(t.kind == ';') 
                 t=ts.get();    // eat ';'
             if (t.kind == 'q') {
                 keep_window_open();
@@ -199,9 +248,9 @@ int main()
         keep_window_open();
         return 0;
     }
-    catch (exception& e) {
-        cerr << "error: " << e.what() << '\n'; 
-        keep_window_open();
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';keep_window_open();
         return 1;
     }
     catch (...) {
@@ -209,5 +258,5 @@ int main()
         keep_window_open();
         return 2;
     }
+    
 }
-//------------------------------------------------------------------------------
