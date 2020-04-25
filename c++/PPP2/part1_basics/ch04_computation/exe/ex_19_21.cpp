@@ -9,7 +9,7 @@ int main()
     int mark = -1;
     bool notpresent = true;
 
-    while (name != "NoName" && mark != 0)
+    while (name != "NoName")
     {
         cout << "Enter name, marks pair (eg: Christy 98): ";
         cin >> name >> mark;
@@ -18,8 +18,8 @@ int main()
             if (names[i] == name)
                 notpresent = false;
         }
-
-        if (notpresent)
+              
+        if (notpresent && name != "NoName" )
         {
             names.push_back(name);
             marks.push_back(mark);
@@ -34,7 +34,7 @@ int main()
         cout << names[i] << " --> " << marks[i] << '\n';
     }
 
-    cout << "Enter a name for which you need the marks: ";
+     cout << "Enter a name for which you need the marks: ";
     cin >> name;
 
     for (int i = 0; i < names.size(); ++i)
@@ -51,7 +51,7 @@ int main()
     {
         if (marks[i] == mark)
             cout << names[i] << " " ;
-    }
+    } 
     cout << '\n'; 
     return 0;
 }
