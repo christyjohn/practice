@@ -14,7 +14,7 @@ int main()
     cout << "Enter the number to be searched: ";
     int key;
     cin >> key;
-    int low = 1, high = 10;
+    int low = 0, high = 9;
     int mid;
     int step = 1;
 
