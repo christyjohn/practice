@@ -20,14 +20,7 @@ doc/doxygen/*.tmp
 cachegrind.out*
 
 # Codelite (among others) project files
-/.codelite/*
-/Debug/*
-*.workspace
 *.project
-*.mk
-Project*.txt
-compile_flags.txt
-Makefile
 
 /toolchain
 
