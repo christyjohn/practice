@@ -1,3 +1,33 @@
+# Object files
+*.o
 *.out
-.vscode
+
+# Documentation artifacts
+doc/doxygen/html
+doc/doxygen/latex
+doc/doxygen/man
+doc/doxygen/*.log
+doc/doxygen/*.db
+doc/doxygen/*.tmp
+
+# Built binaries
+*bin
+
+# Backup files
+*~
+*.orig
+.*.swp
+cachegrind.out*
+
+# Codelite (among others) project files
+/.codelite/*
+/Debug/*
+*.workspace
+*.project
+*.mk
+Project*.txt
+compile_flags.txt
+Makefile
+
+/toolchain
 
