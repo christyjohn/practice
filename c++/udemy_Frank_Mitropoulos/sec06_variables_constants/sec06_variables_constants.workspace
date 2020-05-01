@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="sec06_variables_constants" Database="" Version="10000">
+  <Project Name="InitializingVariables" Path="initialize_variables_ex/initialize_variables_ex.project" Active="No"/>
+  <Project Name="PrimitiveTypes" Path="PrimitiveTypes/PrimitiveTypes.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="InitializingVariables" ConfigName="Debug"/>
+      <Project Name="PrimitiveTypes" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="InitializingVariables" ConfigName="Release"/>
+      <Project Name="PrimitiveTypes" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
