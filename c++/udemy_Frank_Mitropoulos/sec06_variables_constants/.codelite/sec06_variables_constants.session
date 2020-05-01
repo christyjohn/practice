@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="/home/christyjohn/Documents/workshop/assorted/practice/c++/udemy_Frank_Mitropoulos/sec06_variables_constants/sec06_variables_constants.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="1" Name="m_selectedTab"/>
   <wxString Value="/home/christyjohn/Documents/workshop/assorted/practice/c++/udemy_Frank_Mitropoulos/sec06_variables_constants/sec06_variables_constants.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/home/christyjohn/Documents/workshop/assorted/practice/c++/udemy_Frank_Mitropoulos/sec06_variables_constants/PrimitiveTypes/main.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="5" Name="CurrentLine"/>
+      <wxString Value="/home/christyjohn/Documents/workshop/assorted/practice/c++/udemy_Frank_Mitropoulos/sec06_variables_constants/Constants/main.cpp" Name="FileName"/>
+      <int Value="24" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/christyjohn/Documents/workshop/assorted/practice/c++/udemy_Frank_Mitropoulos/sec06_variables_constants/Challenge/main.cpp" Name="FileName"/>
+      <int Value="25" Name="FirstVisibleLine"/>
+      <int Value="40" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
