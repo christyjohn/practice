@@ -3,7 +3,8 @@
   <Project Name="InitializingVariables" Path="initialize_variables_ex/initialize_variables_ex.project" Active="No"/>
   <Project Name="PrimitiveTypes" Path="PrimitiveTypes/PrimitiveTypes.project" Active="No"/>
   <Project Name="SizeOf" Path="SizeOf/SizeOf.project" Active="No"/>
-  <Project Name="Constants" Path="Constants/Constants.project" Active="Yes"/>
+  <Project Name="Constants" Path="Constants/Constants.project" Active="No"/>
+  <Project Name="Challenge" Path="Challenge/Challenge.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -11,6 +12,7 @@
       <Project Name="PrimitiveTypes" ConfigName="Debug"/>
       <Project Name="SizeOf" ConfigName="Debug"/>
       <Project Name="Constants" ConfigName="Debug"/>
+      <Project Name="Challenge" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -18,6 +20,7 @@
       <Project Name="PrimitiveTypes" ConfigName="Release"/>
       <Project Name="SizeOf" ConfigName="Release"/>
       <Project Name="Constants" ConfigName="Release"/>
+      <Project Name="Challenge" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
