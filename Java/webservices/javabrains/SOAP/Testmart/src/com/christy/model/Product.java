@@ -1,9 +1,17 @@
 package com.christy.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name="Product")
+@XmlType(propOrder= {"price", "sku", "name"} )
 public class Product {
 	private String name;
 	private String sku;
 	private double price;
+	
+	public Product() { }
 	
 	public Product(String name, String sku, double price) {
 		super();
@@ -12,6 +20,7 @@ public class Product {
 		this.price = price;
 	}
 
+	@XmlElement(name="ProductName")
 	public String getName() {
 		return name;
 	}

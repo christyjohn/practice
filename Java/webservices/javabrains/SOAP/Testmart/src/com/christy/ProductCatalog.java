@@ -8,7 +8,10 @@ import javax.jws.WebService;
 import com.christy.business.ProductServiceImpl;
 import com.christy.model.Product;
 
-@WebService(endpointInterface = "com.christy.ProductCatalogInterface")
+@WebService(endpointInterface = "com.christy.ProductCatalogInterface",
+	serviceName = "TestMartCatalogService", 
+	portName = "TestMartCatalogPort",
+	targetNamespace = "http://www.testmart.com")
 public class ProductCatalog implements ProductCatalogInterface {
 	
 	ProductServiceImpl productService = new ProductServiceImpl();
