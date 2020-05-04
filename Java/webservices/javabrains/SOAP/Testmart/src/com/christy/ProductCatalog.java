@@ -8,29 +8,27 @@ import javax.jws.WebService;
 import com.christy.business.ProductServiceImpl;
 import com.christy.model.Product;
 
-@WebService(name="TestMartCatalog", portName = "TestMartCatalogPort",
-		serviceName = "TestMartCatalogService", 
-		targetNamespace = "http://www.testmart.com")
-public class ProductCatalog {
+@WebService(endpointInterface = "com.christy.ProductCatalogInterface")
+public class ProductCatalog implements ProductCatalogInterface {
 	
 	ProductServiceImpl productService = new ProductServiceImpl();
 
-	@WebMethod(action="fetch_categories", operationName="fetchCategories")
+	@Override
 	public List<String> getProductCategories() {		
 		return productService.getProductCategories();
 	}
 	
-	@WebMethod
+	@Override
 	public List<String> getProducts(String category) {
 		return productService.getProducts(category);
 	}
 	
-	@WebMethod	
+	@Override
 	public boolean addProduct(String category, String product) {
 		return productService.addProduct(category, product);
 	}
 	
-	@WebMethod
+	@Override
 	public List<Product> getProductsv2(String category) {
 		return productService.getProductsv2(category);
 	}
