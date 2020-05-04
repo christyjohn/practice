@@ -3,6 +3,8 @@ package com.christy.business;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.christy.model.Product;
+
 public class ProductServiceImpl {
 	
 	List<String> bookList = new ArrayList<>();
@@ -54,6 +56,13 @@ public class ProductServiceImpl {
 			movieList.add(product);
 	}
 	return true;
+	}
+
+	public List<Product> getProductsv2(String category) {
+		List<Product> productList = new ArrayList<>();
+		productList.add(new Product("Java Brains Book", "1234", 99999));
+		productList.add(new Product("Another Book", "abc", 50));
+		return productList;
 	}
 	
 }

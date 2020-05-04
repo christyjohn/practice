@@ -6,6 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import com.christy.business.ProductServiceImpl;
+import com.christy.model.Product;
 
 @WebService(name="TestMartCatalog", portName = "TestMartCatalogPort",
 		serviceName = "TestMartCatalogService", 
@@ -19,13 +20,19 @@ public class ProductCatalog {
 		return productService.getProductCategories();
 	}
 	
-	@WebMethod(exclude=true)
+	@WebMethod
 	public List<String> getProducts(String category) {
 		return productService.getProducts(category);
 	}
 	
-	@WebMethod(exclude=true)
+	@WebMethod	
 	public boolean addProduct(String category, String product) {
 		return productService.addProduct(category, product);
 	}
+	
+	@WebMethod
+	public List<Product> getProductsv2(String category) {
+		return productService.getProductsv2(category);
+	}
+	
 }
