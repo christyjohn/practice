@@ -5,6 +5,9 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.MatrixParam;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.core.UriInfo;
 
 @Path("/injectdemo")
 public class InjectDemoResource {
@@ -17,5 +20,14 @@ public class InjectDemoResource {
 		return "Matrix param: " + matrixParam + 
 			    ", Header param: " + header +
 			    ", Cookie param: " + cookie;
+	}
+	
+	@GET
+	@Path("context")
+	public String getParamUsingContext(@Context UriInfo uriInfo,
+										@Context HttpHeaders headers) {
+		String path = uriInfo.getAbsolutePath().toString();
+		String cookies = headers.getCookies().toString();
+		return "Path: " + path + ", Cookies: " + cookies;
 	}
 }
