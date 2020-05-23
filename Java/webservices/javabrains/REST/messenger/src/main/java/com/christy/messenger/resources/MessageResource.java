@@ -16,6 +16,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 @Path("/messages")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -49,9 +51,20 @@ public class MessageResource {
 		return messageService.getMessage(id);
 	}
 
-	@POST
+	/*
+	@POST	
 	public Message addMessage(Message message) {
 		return messageService.addMessage(message);
+	}	 
+	*/
+	// Using ResponseBuilder instead.
+	// This helps is recieving proper response codes
+	@POST
+	public Response addMessage(Message message) {
+		Message newMessage = messageService.addMessage(message);
+		return Response.status(Status.CREATED)
+				.entity(newMessage)
+				.build();
 	}
 
 	@PUT
