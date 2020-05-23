@@ -15,9 +15,11 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.UriInfo;
 
 @Path("/messages")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -47,8 +49,41 @@ public class MessageResource {
 
 	@GET
 	@Path("/{messageId}")
-	public Message getMessage(@PathParam("messageId") long id) {
-		return messageService.getMessage(id);
+	public Message getMessage(@PathParam("messageId") long id, @Context UriInfo uriInfo) {
+		Message message = messageService.getMessage(id);
+		message.addLink(getUriForSelf(uriInfo, message), "self");
+		message.addLink(getUriForProfile(uriInfo, message), "profile");
+		message.addLink(getUriForComments(uriInfo, message), "comments");
+		return message;
+	}
+
+	private String getUriForComments(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder()
+				.path(MessageResource.class)
+				.path(MessageResource.class, "getCommentResource")
+				.path(CommentResource.class)	// currently not needed, but could be handy later
+				.resolveTemplate("messageId", message.getId())
+				.build()
+				.toString();
+		return uri;
+	}
+
+	private String getUriForProfile(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder()
+				.path(ProfileResource.class)
+				.path(message.getAuthor())
+				.build()
+				.toString();
+		return uri;
+	}
+
+	private String getUriForSelf(UriInfo uriInfo, Message message) {
+		String uri = uriInfo.getBaseUriBuilder()
+				.path(MessageResource.class)
+				.path(Long.toString(message.getId()))
+				.build()
+				.toString();
+		return uri;
 	}
 
 	/*

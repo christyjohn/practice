@@ -14,9 +14,9 @@ public class MessageService {
 	private Map<Long, Message> messages = DatabaseClass.getMessages();
 	
 	public MessageService() {
-		messages.put(1L, new Message(1, "Hello World", "Christy"));
-		messages.put(2L, new Message(2, "Hello Jersey", "Christy"));
-		messages.put(3L, new Message(3, "Hai REST API", "Cecil"));
+		messages.put(1L, new Message(1, "Hello World", "christy"));
+		messages.put(2L, new Message(2, "Hello Jersey", "christy"));
+		messages.put(3L, new Message(3, "Hai REST API", "cecil"));
 	}
 
 	public List<Message> getAllMessages()  {
