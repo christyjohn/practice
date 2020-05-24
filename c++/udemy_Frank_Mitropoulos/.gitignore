@@ -1,26 +1,11 @@
-# Object files
-*.o
-*.out
-
-# Documentation artifacts
-doc/doxygen/html
-doc/doxygen/latex
-doc/doxygen/man
-doc/doxygen/*.log
-doc/doxygen/*.db
-doc/doxygen/*.tmp
-
-# Built binaries
-*bin
-
-# Backup files
-*~
-*.orig
-.*.swp
-cachegrind.out*
-
 # Codelite (among others) project files
 *.project
+/.codelite
+/Debug
+*.mk
+*.txt
+Makefile
+*.workspace
 
 /toolchain
 
