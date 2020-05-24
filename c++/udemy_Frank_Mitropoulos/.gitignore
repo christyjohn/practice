@@ -1,7 +1,7 @@
 # Codelite (among others) project files
 *.project
-/.codelite
-/Debug
+/.codelite/*
+/Debug/*
 *.mk
 *.txt
 Makefile
