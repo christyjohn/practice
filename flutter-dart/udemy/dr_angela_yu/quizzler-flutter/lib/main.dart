@@ -68,6 +68,47 @@ class _QuizPageState extends State<QuizPage> {
     'Alexander Fleming discovered penicillin',
   ];
 
+  List<bool> answers = [
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true,
+    true
+  ];
+
   int questionNumber = 0;
 
   void changeQuestion() {
@@ -113,6 +154,14 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == true) {
+                  print('user got it right!');
+                } else {
+                  print('user got it wrong!');
+                }
+
                 changeQuestion();
               },
             ),
@@ -132,6 +181,13 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == false) {
+                  print('user got it right!');
+                } else {
+                  print('user got it wrong!');
+                }
                 changeQuestion();
               },
             ),
