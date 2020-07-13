@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "iostream": "cpp",
-        "string_view": "cpp",
-        "regex": "cpp",
-        "typeinfo": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Disabled"
-}
