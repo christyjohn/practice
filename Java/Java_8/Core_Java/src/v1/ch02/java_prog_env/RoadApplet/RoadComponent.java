@@ -1,4 +1,4 @@
-package v1.ch02.java_prog_env;
+package v1.ch02.java_prog_env.RoadApplet;
 
 import java.awt.*;
 import java.awt.image.*;
