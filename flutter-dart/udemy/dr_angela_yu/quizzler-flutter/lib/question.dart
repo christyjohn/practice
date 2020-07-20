@@ -1,3 +1,5 @@
+import 'question.dart';
+
 class Question {
   String questionText;
   bool questionAnswer;
