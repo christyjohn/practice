@@ -3,7 +3,7 @@ package ch01.fundamentals.sec1.basic_programming_model.exercises;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class Wx_1_1_21 {
+public class Ex_1_1_21 {
 
 	public static void main(String[] args) {
 		
