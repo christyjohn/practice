@@ -1,7 +1,6 @@
 package ch03.fundamental_data_structures;
 
-public class SinglyLinkedList<E> {
-	
+public class CircularlyLinkedList<E> {
 	// nested Node class
 	private static class Node<E> {
 		private E element;
@@ -25,12 +24,11 @@ public class SinglyLinkedList<E> {
 		}
 	}
 	
-	// instance variables of of SinglyLinkedList
-	private Node<E> head = null;
+	// instance variables of the CircularlyLinkedList
 	private Node<E> tail = null;
 	private int size = 0;
 	
-	public SinglyLinkedList() {
+	public CircularlyLinkedList() {
 		
 	}
 	
@@ -46,7 +44,7 @@ public class SinglyLinkedList<E> {
 	public E first() {
 		if (isEmpty())
 			return null;
-		return head.getElement();
+		return tail.getNext().getElement();
 	}
 	
 	public E last() {
@@ -56,31 +54,36 @@ public class SinglyLinkedList<E> {
 	}
 	
 	// update methods
+	public void rotate() {
+		if (tail != null)
+			tail = tail.getNext();
+	}
+	
 	public void addFirst(E e) {
-		head = new Node<>(e, head);
-		if (size == 0)
-			tail = head;
+		if (size == 0) {
+			tail = new Node<>(e, null);
+			tail.setNext(tail);
+		} else {
+			Node<E> newest = new Node<>(e, tail.getNext());
+			tail.setNext(newest);
+		}
 		size++;
 	}
 	
 	public void addLast(E e) {
-		Node<E> newest = new Node<>(e, null);
-		if (isEmpty())
-			head = newest;
-		else
-			tail.setNext(newest);
-		tail = newest;
-		size++;
+		addFirst(e);
+		tail = tail.getNext();
 	}
 	
 	public E removeFirst() {
-		if ( isEmpty())
+		if (isEmpty())
 			return null;
-		E answer = head.getElement();
-		head = head.getNext();
-		size--;
-		if (size == 0)
+		Node<E> head = tail.getNext();
+		if (head == tail)
 			tail = null;
-		return answer;
+		else
+			tail.setNext(head.getNext());
+		size--;
+		return head.getElement();
 	}
 }
