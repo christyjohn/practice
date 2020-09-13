@@ -1,29 +1,19 @@
 package ch03.fundamental_data_structures;
 
+import java.util.Arrays;
+
 public class InsertionSort {
 
 	public static void main(String[] args) {
 		char[] toSort = {'c', 'x', 'r', 's', 'f', 'a', 'n', 'b'};
-		
+				
 		System.out.print("Before sorting the array is: ");
-		
-		System.out.print("[ ");
-		for (char c : toSort)
-			System.out.print(c +" ");
-
-		System.out.print("]");
-		System.out.println();
+		System.out.println(Arrays.toString(toSort));
 		
 		insertionSort(toSort);
 		
 		System.out.print("The sorted array is: ");
-		
-		System.out.print("[ ");
-		for (char c : toSort)
-			System.out.print(c +" ");
-
-		System.out.print("]");
-		System.out.println();
+		System.out.println(Arrays.toString(toSort));
 	}
 	
 	public static void insertionSort(char[] data) {
