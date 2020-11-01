@@ -1,4 +1,4 @@
-set SERVEROUTPUT ON;
+SET SERVEROUTPUT ON;
 
 DECLARE
    l_right_now   VARCHAR2 (9);
@@ -71,4 +71,36 @@ IS
         g_global := number_in;
     END set_global;
 END scope_demo;
+/
+
+CREATE OR REPLACE PACKAGE BODY scope_demo
+IS
+    PROCEDURE set_global (number_in IN NUMBER)
+    IS
+        l_salary NUMBER := 10000;
+        l_count PLS_INTEGER;
+    BEGIN
+        <<local_block>>
+        DECLARE
+            l_inner NUMBER;
+        BEGIN
+            SELECT COUNT ( * )
+                INTO set_global.l_count
+                FROM employees e
+                WHERE e.department_id = local_block.l_inner 
+                AND e.salary > set_global.l_salary;
+        END local_block;
+        
+        scope_demo.g_global := set_global.number_in;
+    END set_global;
+END scope_demo;
+/
+
+DECLARE
+   first_day   DATE;
+   LAST_DAY    DATE;
+BEGIN
+   first_day := SYSDATE;
+   LAST_DAY := ADD_MONTHS (first_day, 6);
+END;
 /
