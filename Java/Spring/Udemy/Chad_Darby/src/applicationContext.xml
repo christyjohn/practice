@@ -15,6 +15,9 @@
     <bean id="myCoach"
     	class="com.christy.springdemo.BaseBallCoach">
     </bean>
+    <bean id="myCricketCoach"
+    	class="com.christy.springdemo.CricketCoach">
+    </bean>
     
 </beans>
 
