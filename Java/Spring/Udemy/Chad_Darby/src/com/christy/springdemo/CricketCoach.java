@@ -8,4 +8,9 @@ public class CricketCoach implements Coach {
 		return "Bowl 5 overs";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		return "You will get Man of the Match today";
+	}
+
 }

@@ -4,7 +4,9 @@ public class MyApp {
 
 	public static void main(String[] args) {
 		
-		Coach theCoach = new BaseBallCoach();
+		FortuneService fortune = new HappyFortuneSevice();
+		
+		Coach theCoach = new BaseBallCoach(fortune);
 		System.out.println(theCoach.getDailyWorkout());
 		
 		theCoach = new TrackCoach();
