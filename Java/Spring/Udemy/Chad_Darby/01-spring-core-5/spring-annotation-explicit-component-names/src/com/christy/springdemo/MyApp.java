@@ -11,7 +11,7 @@ public class MyApp {
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 				
 		// retrieve bean from spring container
-		Coach tennisCoach = context.getBean("tennisCoach", Coach.class);
+		Coach tennisCoach = context.getBean("myTennisCoach", Coach.class);
 		
 		System.out.println(tennisCoach.getDailyWorkout());
 		
