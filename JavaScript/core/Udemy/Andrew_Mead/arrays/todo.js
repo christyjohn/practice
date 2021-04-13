@@ -18,7 +18,32 @@ const todos = [{
     completed: false
 }]
 
+/*
+const getthingsToDo = function(todos) {
+    let yetToDoTasks = []
+    todos.filter(function(task) {
+        if (task.completed === false) {
+            yetToDoTasks.push({task: `${task.task}`, completed: `${task.completed}`})
+        }
+    })
+    return yetToDoTasks;
+}
+*/
 
+// simple way of the above
+const getthingsToDo = function(todos) {
+    return todos.filter(function(todo) {
+        return todo.completed === false
+    })
+}
+
+console.log('The full list of tasks')
+console.log(todos)
+console.log('------------------')
+console.log('The list of tasks to be completed')
+console.log(getthingsToDo(todos))
+
+/* 
 const deleteTodo = function(todos, task) {
     const index = todos.findIndex(function(todoTask, index) {
         return todoTask.task.toLowerCase() === task.toLowerCase()
@@ -37,7 +62,7 @@ deleteTodo(todos, 'buy food')
 
 console.log('After delete')
 console.log(todos)
-console.log('------------------')
+console.log('------------------') */
 
 
 /* let showArrayContents = function() {
