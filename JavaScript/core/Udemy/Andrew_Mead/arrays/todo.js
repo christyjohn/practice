@@ -43,6 +43,24 @@ console.log('------------------')
 console.log('The list of tasks to be completed')
 console.log(getthingsToDo(todos))
 
+// shoe the todos to be completed first
+const sortTodos = function(todos) {
+    todos.sort(function(a,b) {
+        if (!a.completed && b.completed) {
+            return -1
+        } else  if (!b.completed && a.completed) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+console.log('Showing the todos to be completed first')
+console.log('----------------------------------------')
+sortTodos(todos)
+console.log(todos)
+
 /* 
 const deleteTodo = function(todos, task) {
     const index = todos.findIndex(function(todoTask, index) {
