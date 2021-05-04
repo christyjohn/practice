@@ -3,6 +3,7 @@ package sec08.arrays_lists_boxing;
 import java.util.ArrayList;
 
 public class Customer {
+
     private String name;
     private ArrayList<Double> transactions;
 
