@@ -75,7 +75,7 @@ public class Player implements Saveable {
             this.name = savedValues.get(0);
             this.hitPoints = Integer.parseInt(savedValues.get(1));
             this.strength = Integer.parseInt(savedValues.get(2));
-            this.weapon = savedValues.get(2);
+            this.weapon = savedValues.get(3);
         }
     }
 }
