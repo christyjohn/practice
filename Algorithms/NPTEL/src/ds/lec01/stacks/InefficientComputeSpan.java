@@ -23,7 +23,7 @@ public class InefficientComputeSpan {
                 else
                     done = true;
 
-            } while (k < i && done == false);
+            } while (k <= i && done == false);
             span[i] =  k;
         }
 
