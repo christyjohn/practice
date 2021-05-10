@@ -1,4 +1,4 @@
-package ds.lec01;
+package ds.lec01.introduction;
 
 public class InsertionSort {
     public static void main(String[] args) {
