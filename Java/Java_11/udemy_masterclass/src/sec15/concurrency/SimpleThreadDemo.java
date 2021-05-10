@@ -21,10 +21,17 @@ public class SimpleThreadDemo {
             public void run() {
                 //super.run();
                 System.out.println(ANSI_RED + "Hello from the anonymous class's implementation of run() - " + currentThread().getName());
+
+                try {
+                    anotherThread.join();
+                    System.out.println(ANSI_RED + "AnotherThread terminated, or timed out, so I'm running again." + currentThread().getName());
+                } catch (InterruptedException e) {
+                    System.out.println(ANSI_RED + "I couldn't wait after all. I was interrupted." + currentThread().getName());
+                }
             }
         });
         myRunnableThread.start();
-        anotherThread.interrupt();
+        //anotherThread.interrupt();
 
         System.out.println("2. Hello from the main thread. - " + currentThread().getName());
     }
