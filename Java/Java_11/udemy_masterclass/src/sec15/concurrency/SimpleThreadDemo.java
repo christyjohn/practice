@@ -24,6 +24,7 @@ public class SimpleThreadDemo {
             }
         });
         myRunnableThread.start();
+        anotherThread.interrupt();
 
         System.out.println("2. Hello from the main thread. - " + currentThread().getName());
     }
