@@ -9,9 +9,8 @@ public class Account {
 	}
 
 	public int credit(double amount) {
-		// Make sure credit amount is not negative, NaN or infinity
-		if (amount < 0.0 || Double.isNaN(amount) || Double.isInfinite(amount)) {
-			System.out.println("Invalid credit amount: " + amount);
+		// Make sure credit amount is valid
+		if (!this.isValidAmount(amount, "credit")) {
 			return -1;
 		}
 		// Credit the amount
@@ -21,9 +20,8 @@ public class Account {
 	}
 
 	public int debit(double amount) {
-		// Make sure the debit amount is not negative, NaN or infinity */
-		if (amount < 0.0 || Double.isNaN(amount) || Double.isInfinite(amount)) {
-			System.out.println("Invalid debit amount: " + amount);
+		// Make sure debit amount is valid
+		if (!this.isValidAmount(amount, "debit")) {
 			return -1;
 		}
 		// Make sure a minimum balance of zero is maintained
@@ -35,5 +33,15 @@ public class Account {
 		System.out.println("Debiting amount: " + amount);
 		this.balance = this.balance - amount;
 		return 1;
+	}
+
+	// Use a private method to validate credit/debit amount
+	private boolean isValidAmount(double amount, String operation) {
+		// Make sure amount is not negative, NaN or infinity
+		if (amount < 0.0 || Double.isNaN(amount) || Double.isInfinite(amount)) {
+			System.out.println("Invalid " + operation + " amount: " + amount);
+			return false;
+		}
+		return true;
 	}
 }
