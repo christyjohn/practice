@@ -15,7 +15,7 @@ public class FindLeaders {
 	 * 
 	 * In this we are going to traverse from end and print the elements
 	 * if the current leader is less than the element.
-	 * Caveat: the end element is always a leader
+	 * Tip: the end element is always a leader
 	 */
 	public static void main(String[] args) {
 		int[] nums = { 7, 10, 4, 3, 10, 6, 5, 2 };
