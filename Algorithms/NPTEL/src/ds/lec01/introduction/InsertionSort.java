@@ -2,7 +2,8 @@ package ds.lec01.introduction;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] arr = { 4, 2, 6, 7, 4, 2, 3, 1, 8};
+        //int[] arr = { 4, 2, 6, 7, 4, 2, 3, 1, 8};
+        int[] arr = { 8, 5, 2, 9, 5, 6, 3};
 
         System.out.print("The entered numbers are: ");
         printNumbers(arr);
