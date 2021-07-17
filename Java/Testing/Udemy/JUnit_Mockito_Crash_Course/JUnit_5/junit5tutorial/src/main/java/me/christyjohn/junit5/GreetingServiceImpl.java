@@ -1,6 +1,6 @@
 package me.christyjohn.junit5;
 
-public class GreetingServiveImpl implements Greeting {
+public class GreetingServiceImpl implements Greeting {
 
 	@Override
 	public String greet(String name) {

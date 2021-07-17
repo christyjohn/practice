@@ -4,16 +4,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class GreetingImplTest {
+	
+	@Mock
+	private GreetingService service;
 
-	private Greeting greeting;
-
-	@BeforeEach
-	public void setup() {
-		System.out.println("Setup");
-		greeting = new GreetingImpl();
-	}
+	@InjectMocks
+	private GreetingImpl greeting;
 
 	@Test
 	public void greetShouldReturnAValidOutput() {
@@ -39,11 +42,5 @@ public class GreetingImplTest {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			greeting.greet("");
 		});
-	}
-
-	@AfterEach
-	public void teardown() {
-		System.out.println("teardown");
-		greeting = null;
 	}
 }
