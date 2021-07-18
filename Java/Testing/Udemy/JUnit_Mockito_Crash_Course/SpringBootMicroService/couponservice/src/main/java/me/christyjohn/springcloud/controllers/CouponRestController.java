@@ -1,10 +1,11 @@
 package me.christyjohn.springcloud.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.christyjohn.springcloud.model.Coupon;
@@ -17,12 +18,12 @@ public class CouponRestController {
 	@Autowired
 	CouponRepo repo;
 
-	@RequestMapping(value = "/coupons", method = RequestMethod.POST)
+	@PostMapping(value = "/coupons")
 	public Coupon create(@RequestBody Coupon coupon) {
 		return repo.save(coupon);
 	}
 	
-	@RequestMapping(value = "/coupons/{code}", method = RequestMethod.GET)
+	@GetMapping(value = "/coupons/{code}")
 	public Coupon getCoupon(@PathVariable("code") String code) {
 		return repo.findByCode(code);		
 	}
