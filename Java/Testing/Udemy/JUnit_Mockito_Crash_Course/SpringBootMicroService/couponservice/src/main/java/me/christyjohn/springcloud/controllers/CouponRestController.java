@@ -20,6 +20,9 @@ public class CouponRestController {
 
 	@PostMapping(value = "/coupons")
 	public Coupon create(@RequestBody Coupon coupon) {
+		if (coupon == null) {
+			throw new IllegalArgumentException("Coupopn is required");
+		}
 		return repo.save(coupon);
 	}
 	
