@@ -2,6 +2,9 @@ package me.christyjohn.maven.calculator;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
 
 public class CalculatorImpTest {
@@ -14,6 +17,10 @@ public class CalculatorImpTest {
 		this.num1 = num1;
 		this.num2 = num2;
 		this.result = result;
+	}
+	
+	public static Collection<Integer[]> data() {
+		return Arrays.asList(new Integer[][] { {-1, 2, 1}, {1, 2, 3}, {6, 7, 13} });
 	}
 
 	@Test
