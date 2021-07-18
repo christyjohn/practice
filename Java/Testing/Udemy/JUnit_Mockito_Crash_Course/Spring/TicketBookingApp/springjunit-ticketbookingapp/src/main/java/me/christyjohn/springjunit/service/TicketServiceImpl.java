@@ -1,10 +1,15 @@
 package me.christyjohn.springjunit.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import me.christyjohn.springjunit.dao.TicketDAO;
 import me.christyjohn.springjunit.dto.Ticket;
 
+@Component
 public class TicketServiceImpl implements TicketService {
 
+	@Autowired
 	private TicketDAO dao;
 	
 	@Override
