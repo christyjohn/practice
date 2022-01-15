@@ -14,7 +14,7 @@
 	
 	<!-- define dependency -->
 	<bean id="myFortuneService"
-		class="me.christyjohn.springdemo.HappyFortuneService" />
+		class="me.christyjohn.springdemo.RandomFortuneService" />
 		
 	<bean id="myCricketCoach" class="me.christyjohn.springdemo.CricketCoach">
 	<!--  set up setter injection -->
@@ -25,4 +25,11 @@
 		<property name="team" value="${foo.team}" />
 		
 	</bean>
+	
+	<bean id="myGolfCoach"
+ 		class="me.christyjohn.springdemo.GolfCoach">	 
+ 		
+ 		<!-- set up constructor injection -->
+ 		<constructor-arg ref="myFortuneService" />
+ 	</bean>
 </beans>
