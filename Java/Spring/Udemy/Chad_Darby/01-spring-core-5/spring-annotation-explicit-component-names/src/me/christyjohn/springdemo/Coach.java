@@ -1,0 +1,7 @@
+package me.christyjohn.springdemo;
+
+public interface Coach {
+
+	public String getDailyWorkout();
+	
+}
