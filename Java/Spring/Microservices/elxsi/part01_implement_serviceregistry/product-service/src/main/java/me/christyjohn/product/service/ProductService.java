@@ -30,7 +30,7 @@ public class ProductService {
         Product product = productRepository.findByProductId(productId);
 
         Catalogue catalogue =
-                restTemplate.getForObject("http://localhost:9001/catalogues/" + product.getCatalogueId()
+                restTemplate.getForObject("http://CATALOGUE-SERVICE/catalogues/" + product.getCatalogueId()
                         , Catalogue.class);
 
         vo.setProduct(product);
