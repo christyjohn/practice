@@ -1,0 +1,11 @@
+
+
+Eureka server : http://localhost:8761/
+Health: http://localhost:9002/actuator/health
+
+
+Zipkin
+java -jar zipkin.jar
+
+
+https://github.com/christyjohn/config-server-msdemo4Elxsi
