@@ -22,6 +22,10 @@ public class Student {
         this.activities = activities;
     }
 
+    public Student(String s) {
+        name = s;
+    }
+
     public String getName() {
         return name;
     }
