@@ -12,8 +12,8 @@ public class LambdaVariable2 {
         Consumer<Integer> c1 = (i) -> {
             // "
             // value = i;
-            System.out.println(value + i); // 9
-            System.out.println(valueInst + i); // 12
+            System.out.println(value + i); // 10
+            System.out.println(valueInst + i); // 13
         };
 
         // Even though we can do this, we cannot now use value inside our Consumer, it will show error
@@ -24,6 +24,6 @@ public class LambdaVariable2 {
         // we can change instance variables which are used inside lambda expressions.
         valueInst = 7;
 
-        c1.accept(5);
+        c1.accept(6);
     }
 }
