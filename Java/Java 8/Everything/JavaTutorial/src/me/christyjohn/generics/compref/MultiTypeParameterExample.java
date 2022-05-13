@@ -27,7 +27,7 @@ class MultiTypes<T , U , V> {
 public class MultiTypeParameterExample {
     public static void main(String[] args) {
         MultiTypes<String, Integer, Double> multiTypes =
-                new MultiTypes<>("The Building", 50, 145.5);
+                new MultiTypes<>("The Building", 50, 155.5);
         System.out.println(multiTypes.getT() + " is " +
                 multiTypes.getU() + " year old, and is " +
                 multiTypes.getV() + " kms away from the city.") ;
