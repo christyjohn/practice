@@ -14,7 +14,7 @@ class PostGenerics<T> {
 
 public class GenericsExample {
     public static void main(String[] args) {
-        PostGenerics<String> pg = new PostGenerics("Christy");
+        PostGenerics<String> pg = new PostGenerics("Christy JOhn");
         String name = pg.getT();
         System.out.println(name);
 
