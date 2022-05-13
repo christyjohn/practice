@@ -10,7 +10,7 @@ public class LambdaVariable2 {
         int value = 4; // local variable
 
         Consumer<Integer> c1 = (i) -> {
-            // Variable used in lambda expression should be final or effectively final
+            // "
             // value = i;
             System.out.println(value + i); // 9
             System.out.println(valueInst + i); // 12
