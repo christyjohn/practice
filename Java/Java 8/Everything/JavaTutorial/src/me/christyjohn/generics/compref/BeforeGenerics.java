@@ -19,7 +19,7 @@ public class BeforeGenerics {
         PreGenerics pg = new PreGenerics(new String("Christy"));
         String name = (String) pg.getObj();
 
-        PreGenerics pg1 = new PreGenerics(38);
+        PreGenerics pg1 = new PreGenerics(39);
         int age = (int) pg1.getObj();
     }
 }
