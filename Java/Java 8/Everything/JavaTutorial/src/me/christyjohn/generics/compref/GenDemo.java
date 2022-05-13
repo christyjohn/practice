@@ -31,7 +31,7 @@ class Gen<T> {
 public class GenDemo {
 
     public static void main(String[] args) {
-        Gen<Integer> iOb = new Gen<>(88);
+        Gen<Integer> iOb = new Gen<>(89);
         iOb.showType();
 
         Gen<String> strOb = new Gen<>("Java");
